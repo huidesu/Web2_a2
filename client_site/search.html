@@ -1,0 +1,56 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Fundraisers</title>
+</head>
+
+<body>
+    <h1>Search Fundraisers</h1>
+    <a href="/"><span>Home</span></a>  |<a href="/search"><span>Search</span></a> | <a href="/fundraiser"><span>Fundraiser</span></a> 
+    <form id="searchForm">
+        <label for="organizerInput">Organizer:</label>
+        <input type="text" id="organizerInput"><br>
+        <label for="cityInput">City:</label>
+        <input type="text" id="cityInput"><br>
+        <label for="categoryInput">Category:</label>
+        <input type="text" id="categoryInput"><br>
+        <input type="button" value="Search" onclick="startSearch()">
+        <input type="button" value="Clear" onclick="clearCheckboxes()">
+    </form>
+    <div id="records"></div>
+    <script src="search.js"></script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Fundraisers</title>
+</head>
+
+<body>
+    <h1>Search Fundraisers</h1>
+    <a href="/"><span>Home</span></a> |
+    <a href="/search"><span>Search</span></a> |
+    <a href="/fundraiser"><span>Fundraiser</span></a>
+    <form id="searchForm">
+        <label for="organizerInput">Organizer:</label>
+        <input type="text" id="organizer"><br>
+        <label for="cityInput">City:</label>
+        <input type="text" id="city"><br>
+        <div id="checkbox"></div>
+ 
+            <!-- 这里将通过JavaScript动态填充选项 -->
+        </select><br>
+        <input type="button" value="Search" onclick="startSearch()">
+        <input type="button" value="Clear" onclick="clearCheckboxes()">
+    </form>
+    <div id="records"></div>
+    <script src="./search.js"></script>
+</body>
+
+</html>
