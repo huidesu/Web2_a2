@@ -57,8 +57,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     类别: ${fundraiser.CategoryName},  
                     状态: ${fundraiser.ACTIVE ? '活跃' : '未活跃'}  
                 `;  
+                item.addEventListener("click", function () {
+                    localStorage.setItem("ID", fundraiser.FUNDRAISER_ID);
+                    location.href = '/fundraiser';
+                });
                 fundraisersList.appendChild(item);  
             });  
+            
         })  
         .catch(error => console.error('Error fetching fundraisers:', error));  
 });
