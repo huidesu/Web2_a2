@@ -1,23 +1,53 @@
-body, h1, h2, ul, li, p {  
-    margin: 0;  
-    padding: 0;  
-    list-style: none; /* 移除列表前的默认项目符号 */  
-} 
-  
-/* 导航样式 */  
-nav {  
-    width: 100%;  
+/* 筹款者信息区域样式 */  
+.fundraiser-info {  
     background-color: #fff;  
-    padding: 10px 0;  
-    text-align: center; /* 这个属性将帮助子元素（链接）水平居中 */  
-    /* display: flex; 可以添加这个属性，但如果不是为了其他布局需求，text-align就足够了 */  
+    padding: 20px;  
+    border-radius: 5px;  
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  
+    margin-top: 20px;  
 }  
   
+.fundraiser-info p {  
+    margin: 0;  
+    padding: 10px 0;  
+    border-bottom: 1px solid #ccc;  
+}  
+  
+.fundraiser-info p:last-child {  
+    border-bottom: none;  
+}  
+  
+/* 捐赠按钮样式 */  
+#donateButton {  
+    padding: 10px 20px;  
+    background-color: #0066cc;  
+    color: #fff;  
+    border: none;  
+    border-radius: 3px;  
+    cursor: pointer;  
+    margin-top: 20px;  
+}  
+  
+#donateButton:hover {  
+    background-color: #0052a3;  
+}  
+  
+/* 全局样式设置 */  
+body {  
+    font-family: Arial, sans-serif;  
+    margin: 0;  
+    padding: 0;  
+    background-color: #f4f4f4;  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+}  
+  
+/* 导航样式 */  
 nav a {  
     text-decoration: none;  
     color: #333;  
-    margin: 0 10px; /* 这个间距将链接分开 */  
-    display: inline-block; /* 确保链接是内联块级元素，以便它们可以水平排列 */  
+    margin: 0 10px;  
 }  
   
 nav a:hover {  
@@ -50,9 +80,6 @@ header p {
     padding: 20px;  
     border-radius: 5px;  
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  
-    width: 100%; /* 使表单宽度与父容器一致（如果父容器有宽度限制） */  
-    max-width: 600px; /* 限制表单的最大宽度，使其更易于在小屏幕上使用 */  
-    margin: 20px auto; /* 在垂直方向上添加间距，并在水平方向上居中 */  
     text-align: left;  
 }  
   
@@ -83,21 +110,25 @@ header p {
     background-color: #0052a3;  
 }  
   
-/* 导航栏样式（如果nav需要特别的样式，而不是仅仅针对a标签） */  
+/* 导航栏居中 */  
 nav {  
     width: 100%;  
+    text-align: center;  
     background-color: #fff;  
     padding: 10px 0;  
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加一个轻微的阴影以增加深度 */  
+    /* 如果需要导航链接在一行显示，可以添加以下样式 */  
+    display: flex;  
+    justify-content: center; /* 水平居中 */  
+    align-items: center;     /* 垂直居中（如果需要的话） */  
 }  
   
-/* 主体部分样式 */  
+/* 主体部分居中 */  
 main {  
-    width: 50%; /* 或其他你想要的宽度 */  
+    width: 50%;  
     min-width: 300px;  
-    margin: 20px auto; /* 上下的外边距可以根据需要调整，左右设置为auto以实现水平居中 */  
-    /* align-items: center; 这在这里不是必需的，因为main的内容已经通过宽度和margin居中了 */  
-    /* 如果main内部有flex子元素并且你想要它们垂直居中，那么可以在main上保留这个属性，并在子元素上应用相应的布局 */  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
 }  
   
 /* 搜索结果模块样式 */  
@@ -106,7 +137,7 @@ main {
     padding: 20px;  
     border-radius: 5px;  
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  
-    margin-top: 20px; /* 在#records上方添加一些间距 */  
+    width: 100%;  
 }  
   
 #records p {  

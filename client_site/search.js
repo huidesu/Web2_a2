@@ -39,15 +39,59 @@ function startSearch() {
                 const MyDiv = document.getElementById('records');
                 MyDiv.innerHTML = "";
                 console.log(data);
+                // if (data.length > 0) {
+                //     data.forEach(fundraiser => {
+                //         const newP = document.createElement("p");
+                //         newP.textContent = `Findraiser ID:${fundraiser.FUNDRAISER_ID},ORGANIZER:${fundraiser.ORGANIZER}, CAPTION: ${fundraiser.CAPTION},TARGET_FUNDING: ${fundraiser.TARGET_FUNDING}, CURRENT_FUNDING: ${fundraiser.CURRENT_FUNDING},CITY:${fundraiser.CITY}`;
+                //         newP.addEventListener("click", function () {
+                //             localStorage.setItem("ID", fundraiser.FUNDRAISER_ID);
+                //             location.href = '/fundraiser';
+                //         });
+                //         MyDiv.appendChild(newP);
+                //     });
+                // } else {
+                //     const errorP = document.createElement('p');
+                //     errorP.textContent = '未找到相关筹款人';
+                //     errorP.style.color ='red';
+                //     errorP.style.fontWeight = 'bold';
+                //     MyDiv.appendChild(errorP);
+                // }
                 if (data.length > 0) {
+                    const MyDiv = document.getElementById('records');
+                    MyDiv.innerHTML = '';
                     data.forEach(fundraiser => {
-                        const newP = document.createElement("p");
-                        newP.textContent = `Findraiser ID:${fundraiser.FUNDRAISER_ID},ORGANIZER:${fundraiser.ORGANIZER}, CAPTION: ${fundraiser.CAPTION},TARGET_FUNDING: ${fundraiser.TARGET_FUNDING}, CURRENT_FUNDING: ${fundraiser.CURRENT_FUNDING},CITY:${fundraiser.CITY}`;
-                        newP.addEventListener("click", function () {
+                        const item = document.createElement('li');
+                        const idP = document.createElement('p');
+                        idP.textContent = `ID: ${fundraiser.FUNDRAISER_ID}`;
+                        const organizerP = document.createElement('p');
+                        organizerP.textContent = `组织者: ${fundraiser.ORGANIZER}`;
+                        const captionP = document.createElement('p');
+                        captionP.textContent = `标题: ${fundraiser.CAPTION}`;
+                        const targetFundingP = document.createElement('p');
+                        targetFundingP.textContent = `目标资金: ${fundraiser.TARGET_FUNDING} AUD`;
+                        const currentFundingP = document.createElement('p');
+                        currentFundingP.textContent = `当前资金: ${fundraiser.CURRENT_FUNDING} AUD`;
+                        const cityP = document.createElement('p');
+                        cityP.textContent = `城市: ${fundraiser.CITY}`;
+                        const categoryP = document.createElement('p');
+                        categoryP.textContent = `类别: ${fundraiser.CategoryName}`;
+                        const statusP = document.createElement('p');
+                        statusP.textContent = `状态: ${fundraiser.ACTIVE? '活跃' : '未活跃'}`;
+                
+                        item.appendChild(idP);
+                        item.appendChild(organizerP);
+                        item.appendChild(captionP);
+                        item.appendChild(targetFundingP);
+                        item.appendChild(currentFundingP);
+                        item.appendChild(cityP);
+                        item.appendChild(categoryP);
+                        item.appendChild(statusP);
+                
+                        item.addEventListener("click", function () {
                             localStorage.setItem("ID", fundraiser.FUNDRAISER_ID);
                             location.href = '/fundraiser';
                         });
-                        MyDiv.appendChild(newP);
+                        MyDiv.appendChild(item);
                     });
                 } else {
                     const errorP = document.createElement('p');
