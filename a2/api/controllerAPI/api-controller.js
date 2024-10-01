@@ -1,24 +1,24 @@
-// 引入自定义的模块 '../crowdfunding_db'，这个模块可能包含了数据库连接相关的功能
-// 将其导出的内容赋值给变量 'crow'
+// Import the custom module '../crowdfunding_db', which may contain functions related to database connection
+// Assign the exported content of the module to the variable 'crow'
 var crow = require("../crowdfunding_db");
-// 引入Express框架，用于构建Web应用程序
-// 将Express框架的实例赋值给变量 'express'
+// Import the Express framework, which is used to build web applications
+// Assign the instance of the Express framework to the variable 'express'
 var express = require('express');
-// 使用Express框架创建一个路由器对象，用于处理特定的路由
-// 将路由器对象赋值给变量 'router'
+// Use the Express framework to create a router object for handling specific routes
+// Assign the router object to the variable 'router'
 var router = express.Router();
-// 通过调用 'crow' 模块中的 'getconnection' 方法获取数据库连接对象
-// 将数据库连接对象赋值给变量 'connection'
+// Obtain the database connection object by calling the 'getconnection' method in the 'crow' module
+// Assign the database connection object to the variable 'connection'
 var connection = crow.getconnection();
 
-// 调用数据库连接对象的 'connect' 方法，建立与数据库的连接
+// Call the 'connect' method of the database connection object to establish a connection with the database
 connection.connect();
 
-// 定义一个GET请求的路由处理函数，当访问根路径 '/' 时被调用
+// Define a route handling function for GET requests. This function will be called when the root path '/' is accessed.
 router.get("/", (req, res) => {
-    // 使用数据库连接对象的 'query' 方法执行一个SQL查询语句
-    // 查询从 'FUNDRAISER' 表和 'CATEGORY' 表中获取特定列的数据，通过内连接（INNER JOIN）关联两个表
-    // 并且只获取 'ACTIVE' 为1（表示活跃）的筹款者（FUNDRAISER）记录
+    // Use the 'query' method of the database connection object to execute an SQL query statement.
+    // Query to obtain specific columns of data from the 'FUNDRAISER' table and the 'CATEGORY' table, and associate the two tables through an inner join (INNER JOIN).
+    // Only retrieve fundraiser (FUNDRAISER) records where 'ACTIVE' is 1 (indicating active).
     connection.query(`SELECT  
     FUNDRAISER.FUNDRAISER_ID,  
     FUNDRAISER.ORGANIZER,  
@@ -34,21 +34,21 @@ INNER JOIN
     CATEGORY ON FUNDRAISER.CATEGORY_ID = CATEGORY.CATEGORY_ID
     WHERE 
     FUNDRAISER.ACTIVE = 1;`, (err, records, fields) => {
-        // 如果查询过程中出现错误，将错误信息打印到控制台
+        // If an error occurs during the query process, print the error message to the console.
         if (err) {
-            console.error("Error while retrieve the data");
+            console.error("Error while retrieving the data");
         } else {
-            // 如果查询成功，将查询结果（'records'）发送给客户端作为响应
+            // If the query is successful, send the query results ('records') as a response to the client.
             res.send(records);
         }
     });
 });
 
-// 定义一个GET请求的路由处理函数，当访问路径包含一个动态参数 ':id' 时被调用
-// 例如，访问 '/1'，其中 '1' 就是动态参数 ':id' 的值
+// Define a route handling function for GET requests. This function will be called when a path with a dynamic parameter ':id' is accessed.
+// For example, when accessing '/1', '1' is the value of the dynamic parameter ':id'.
 router.get("/:id", (req, res) => {
-    // 使用数据库连接对象的 'query' 方法执行一个SQL查询语句
-    // 与前面的查询类似，但添加了一个额外的条件，即 'FUNDRAISER.FUNDRAISER_ID' 等于请求路径中的动态参数 'id'
+    // Use the 'query' method of the database connection object to execute an SQL query statement.
+    // Similar to the previous query, but with an additional condition that 'FUNDRAISER.FUNDRAISER_ID' is equal to the dynamic parameter 'id' in the request path.
     connection.query(`SELECT  
     FUNDRAISER.FUNDRAISER_ID,  
     FUNDRAISER.ORGANIZER,  
@@ -66,43 +66,43 @@ INNER JOIN
     FUNDRAISER.ACTIVE = 1
     AND
     FUNDRAISER.FUNDRAISER_ID = ` + req.params.id, (err, records, fields) => {
-        // 如果查询过程中出现错误，将错误信息打印到控制台
+        // If an error occurs during the query process, print the error message to the console.
         if (err) {
-            console.error("Error while retrieve the data");
+            console.error("Error while retrieving the data");
         } else {
-            // 如果查询成功，将查询结果（'records'）发送给客户端作为响应
+            // If the query is successful, send the query results ('records') as a response to the client.
             res.send(records);
         }
     });
 });
 
 
-// 定义一个GET请求的路由处理函数，当访问路径 '/GATEGORY/ALL' 时被调用
+// Define a route handling function for GET requests. This function will be called when the path '/GATEGORY/ALL' is accessed.
 router.get("/GATEGORY/ALL", (req, res) => {
-    // 使用数据库连接对象的 'query' 方法执行一个SQL查询语句，查询 'CATEGORY' 表中的所有数据
+    // Use the 'query' method of the database connection object to execute an SQL query statement to query all data in the 'CATEGORY' table.
     connection.query(`SELECT * FROM CATEGORY; `, (err, records, fields) => {
-        // 如果查询过程中出现错误，将错误信息打印到控制台
+        // If an error occurs during the query process, print the error message to the console.
         if (err) {
-            console.error("Error while retrieve the data");
+            console.error("Error while retrieving the data");
         } else {
-            // 如果查询成功，将查询结果（'records'）发送给客户端作为响应
+            // If the query is successful, send the query results ('records') as a response to the client.
             res.send(records);
         }
     });
 });
 
-// 定义一个GET请求的路由处理函数，当访问路径 '/SEARCH/one' 时被调用
+// Define a route handling function for GET requests. This function will be called when the path '/SEARCH/one' is accessed.
 router.get("/SEARCH/one", (req, res) => {
-    // 从请求的查询参数（query parameters）中获取 'organizer'（组织者）的值
+    // Obtain the value of 'organizer' (organizer) from the query parameters of the request.
     const organizer = req.query.organizer;
-    // 从请求的查询参数中获取 'city'（城市）的值
+    // Obtain the value of 'city' (city) from the query parameters of the request.
     const city = req.query.city;
-    // 从请求的查询参数中获取 'category'（类别）的值
+    // Obtain the value of 'category' (category) from the query parameters of the request.
     const category = req.query.category;
 
 
-    // 构建一个初始的SQL查询语句，从 'FUNDRAISER' 表和 'CATEGORY' 表中获取数据并通过内连接关联两个表
-    // 并且只获取 'ACTIVE' 为1（表示活跃）的筹款者记录
+    // Build an initial SQL query statement to obtain data from the 'FUNDRAISER' table and the 'CATEGORY' table and associate the two tables through an inner join.
+    // Only retrieve active fundraiser records where 'ACTIVE' is 1.
     let query =
             `SELECT * FROM FUNDRAISER
             JOIN 
@@ -111,34 +111,34 @@ router.get("/SEARCH/one", (req, res) => {
                 FUNDRAISER.ACTIVE = 1 `;
 
 
-    // 创建一个空数组，用于存储后续动态添加到查询语句中的参数值
+    // Create an empty array to store parameter values that will be dynamically added to the query statement later.
     let queryParams = [];
-    // 如果 'organizer' 的值不为空字符串，将一个条件添加到查询语句中，并将 'organizer' 的值添加到参数数组中
+    // If the value of 'organizer' is not an empty string, add a condition to the query statement and add the value of 'organizer' to the parameter array.
     if (organizer!== '') {
         query += 'AND FUNDRAISER.ORGANIZER =?';
         queryParams.push(organizer);
     }
-    // 如果 'city' 的值不为空字符串，将一个条件添加到查询语句中，并将 'city' 的值添加到参数数组中
+    // If the value of 'city' is not an empty string, add a condition to the query statement and add the value of 'city' to the parameter array.
     if (city!== '') {
         query += 'AND FUNDRAISER.CITY =?';
         queryParams.push(city);
     }
-    // 如果 'category' 的值不为空字符串，将一个条件添加到查询语句中，并将 'category' 的值添加到参数数组中
+    // If the value of 'category' is not an empty string, add a condition to the query statement and add the value of 'category' to the parameter array.
     if (category!== '') {
         query += 'AND CATEGORY.NAME =?';
         queryParams.push(category);
     }
 
-    // 在控制台打印最终的SQL查询语句和参数数组（用于调试目的）
+    // Print the final SQL query statement and parameter array to the console (for debugging purposes).
     console.log('Final SQL:', query, queryParams);
-    // 使用数据库连接对象的 'query' 方法执行构建好的查询语句，并传入参数数组
+    // Use the 'query' method of the database connection object to execute the constructed query statement and pass in the parameter array.
     connection.query(query, queryParams, (err, records, fields) => {
-        // 如果查询过程中出现错误，将错误信息打印到控制台，并发送一个500状态码和错误消息（这里是"内部错误"）给客户端
+        // If an error occurs during the query process, print the error message to the console and send a 500 status code and an error message (here is "Internal error") to the client.
         if (err) {
-            console.error("Error while retrieve the data", err);
-            res.status(500).send("内部错误");
+            console.error("Error while retrieving the data", err);
+            res.status(500).send("Internal error");
         } else {
-            // 如果查询成功，将查询结果（'records'）发送给客户端作为响应
+            // If the query is successful, send the query results ('records') as a response to the client.
             res.send(records);
         }
     });
@@ -147,6 +147,6 @@ router.get("/SEARCH/one", (req, res) => {
 });
 
 
-// 将定义好的路由器对象（'router'）作为模块的导出内容
-// 这样其他模块就可以引入这个模块并使用这个路由器来处理特定的路由请求
+// Export the defined router object ('router') as the content of this module.
+// In this way, other modules can import this module and use this router to handle specific route requests.
 module.exports = router;

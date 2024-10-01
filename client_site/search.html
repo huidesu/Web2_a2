@@ -2,52 +2,50 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <!-- 定义文档的字符编码为UTF - 8，确保能够正确显示各种字符 -->
+    <meta charset="UTF - 8">
+
     <meta name="viewport">
     <title>Search Fundraisers</title>
-    <!-- 定义页面的标题为“Search Fundraisers”（搜索筹款者） -->
+
     <link rel="stylesheet" href="search.css">
-    <!-- 引入外部的CSS样式表文件（search.css），用于设置页面的样式 -->
+
 </head>
 
 <body>
     <h1>Search Fundraisers</h1>
-    <!-- 一级标题，显示页面的主要内容为“Search Fundraisers”（搜索筹款者） -->
+
     <header>
-        <!-- 定义页面的头部区域，通常用于包含导航链接等内容 -->
+        <!-- Define the header area of the page, which is usually used to contain navigation links and other content -->
         <a href="/"><span>Home</span></a> |
-        <!-- 导航链接到首页，span元素可用于对链接文本进行样式设置或脚本操作 -->
+
         <a href="/search"><span>Search</span></a> |
-        <!-- 导航链接到搜索页面自身（可能用于刷新等操作） -->
+
         <a href="/fundraiser"><span>Fundraiser</span></a>
-        <!-- 导航链接到筹款者页面 -->
+
     </header>
     <form id="searchForm">
-        <!-- 定义一个表单，id为“searchForm”，用于用户输入搜索条件 -->
+        <!-- Define a form with the id "searchForm" for users to input search conditions -->
         <label for="organizerInput">Organizer:</label>
-        <!-- 为“Organizer”（组织者）输入框创建一个关联标签 -->
+
         <input type="text" id="organizer"><br>
-        <!-- 创建一个文本输入框，用于输入组织者名称，id为“organizer” -->
+
         <label for="cityInput">City:</label>
-        <!-- 为“City”（城市）输入框创建一个关联标签 -->
+
         <input type="text" id="city"><br>
-        <!-- 创建一个文本输入框，用于输入城市名称，id为“city” -->
+
         <div id="checkbox"></div>
-        <!-- 一个空的div元素，id为“checkbox”，用于通过JavaScript动态添加类别（category）相关的单选框 -->
 
 
         </select><br>
         <input type="button" value="Search" onclick="startSearch()">
-        <!-- 创建一个按钮，按钮上显示“Search”（搜索）字样，点击时调用startSearch函数 -->
+        <!-- Create a button with the text "Search" on it. When clicked, the startSearch function will be called -->
         <input type="button" value="Clear" onclick="clearCheckboxes()">
-        <!-- 创建一个按钮，按钮上显示“Clear”（清除）字样，点击时调用clearCheckboxes函数 -->
+        <!-- Create a button with the text "Clear" on it. When clicked, the clearCheckboxes function will be called -->
     </form>
     <div id="records"></div>
-    <!-- 一个空的div元素，id为“records”，用于通过JavaScript动态显示搜索结果 -->
+    <!-- An empty div element with the id "records", which is used to dynamically display search results via JavaScript -->
     <script src="./search.js"></script>
-    <!-- 引入外部的JavaScript文件（search.js），用于为页面添加交互功能 -->
+    <!-- Import an external JavaScript file (search.js) to add interactive functionality to the page -->
 </body>
 
 </html>
-<!--HTML 部分构建了页面的基本结构，包括标题、导航栏、搜索表单（包含组织者、城市输入框、类别单选框、搜索和清除按钮）以及用于显示搜索结果的区域。-->>
