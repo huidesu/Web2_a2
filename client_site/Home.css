@@ -1,11 +1,11 @@
-/* 基本样式重置 */  
+
 body, h1, h2, ul, li, p {  
     margin: 0;  
     padding: 0;  
-    list-style: none; /* 移除列表前的默认项目符号 */  
+    list-style: none; 
 }  
   
-/* 头部样式 */  
+
 header {  
     background-color: #f2f2f2;  
     padding: 20px;  
@@ -21,17 +21,17 @@ header p {
     color: #666;  
 }  
   
-/* 主体样式 */  
+
 main {  
     padding: 20px;  
 }  
   
-/* 筹款人列表样式 */  
+
 #fundraisersList {  
     display: flex;  
     flex-wrap: wrap;  
     justify-content: space-around;  
-    gap: 20px; /* 设置元素之间的间距 */  
+    gap: 20px; 
 }  
   
 #fundraisersList li {  
@@ -39,19 +39,19 @@ main {
     border: 1px solid #ddd;  
     padding: 15px;  
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);  
-    width: calc(33.333% - 20px); /* 三列布局，减去间距 */  
-    min-width: 200px; /* 最小宽度，防止内容过少时看起来太窄 */  
+    width: calc(33.333% - 20px);
+    min-width: 200px; 
     margin-bottom: 20px;  
-    cursor: pointer; /* 鼠标悬停时显示手指形状，表明可点击 */  
-    transition: transform 0.3s ease; /* 平滑过渡效果 */  
+    cursor: pointer; 
+    transition: transform 0.3s ease; 
 }  
   
 #fundraisersList li:hover {  
-    transform: translateY(-5px); /* 鼠标悬停时稍微上移 */  
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 增加阴影效果 */  
+    transform: translateY(-5px);  
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
 }  
   
-/* 文本样式 */  
+
 #fundraisersList li p {  
     margin: 0;  
     font-size: 14px;  

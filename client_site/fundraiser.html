@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundraiser Page</title>
+    <title>Fundraisers</title>
     <link rel="stylesheet" href="fundraiser.css">
+    <!-- Links to external CSS stylesheets to define the style of the page -->
 </head>
-
 <body>
-    <header><a href="/"><span>Home</span></a> |<a href="/search"><span>Search</span></a> | <a href="/fundraiser"><span>Fundraiser</span></a> </header>
-    <div class="fundraiser-info" id="fundraiserDetails">
-        <!-- 这里将通过JavaScript动态填充筹款者详细信息 -->
-    </div>
-    <button id="donateButton">捐赠</button>
-    <script src="./fundraiser.js"></script>
-</body>
+    <h1>Fundraisers</h1>
+   
+    <header>  
+            <!-- Navigation bar, which is used to navigate within the page -->
+            <a href="/"><span>Home</span></a> |   
+            <a href="/search"><span>Search</span></a> |       
+            <a href="/fundraiser"><span>Fundraiser</span></a>
+    </header>
 
+    <main>
+        <!-- The body of the page, which contains the main content -->
+        <div class="fundraiser-container" id="fundraiserDetails"></div>
+    </main>
+
+    <button id="donateButton">donate</button>
+
+    <script src="./fundraiser.js"></script>
+    <!-- An external JavaScript file is introduced to add interactive functionality to the page -->
+</body>
 </html>
+<!--HTML 部分构建了页面的基本结构，包括标题、导航栏、主体部分（包含一个用于展示筹款者详细信息的空 div 元素）以及一个捐赠按钮。-->

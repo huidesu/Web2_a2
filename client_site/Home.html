@@ -1,25 +1,49 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>非营利组织主页</title>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <title>Home</title>
     <link rel="stylesheet" href="Home.css">
-</head> 
+    <!-- An external CSS style sheet file (Home.css) is introduced to style the page -->
+</head>
 
-<body> 
-     
-    <header>  
-        <h1>欢迎来到我们的非营利组织</h1>  
-        <a href="/"><span>Home</span> |<a href="/search"><span>Search</span></a> | <a href="/fundraiser"><span>Fundraiser</span></a> 
-      <p>这是一个鼓舞人心的故事...</p>  
-        
-    </header>  
-    <main>  
-        <h2>活跃筹款人列表</h2>  
-        <ul id="fundraisersList"></ul>  
-    </main>  
-     
-    <script src="./Home.js"></script>  
-</body>  
+<body>
+    <header>
+        <!-- Defines the header area of the page, which usually contains important information such as the title and navigation bar of the website -->
+        <h1>Non - profit charity fundraising</h1>
+
+        <header>
+             <!-- Navigation bar, which is used to navigate within the page -->
+            <a href="/"><span>Home</span></a> |
+            <a href="/search"><span>Search</span></a> |
+            <a href="/fundraiser"><span>Fundraiser</span></a>
+
+        </header>
+
+        <section class="inspirational - story">          
+            <p>Welcome to our charity organization and offer your love</p>          
+        </section>
+    </header>
+
+    <main>
+        <!-- Defines the body of the page, which contains the main content of the page -->
+        <h2>List of active fundraisers</h2>
+        <ul id="fundraisersList"></ul>
+        <!-- An unordered list with the id "fundraisersList" may be used to dynamically add information about an active fundraiser via JavaScript -->
+    </main>
+
+    <section class="contact - info">
+        <h2>Contact information</h2>
+        <p>Tel: 123 - 456 - 7890</p>
+        <p>Email: info@ournonprofit.org</p>
+        <p>Address: 123 Main Street, Anytown, USA</p>
+        <p>We look forward to hearing from you and would love to answer any questions you may have about our non - profit organization.</p>
+    </section>
+
+    <script src="./Home.js"></script>
+    <!-- An external JavaScript file (Home.js) is introduced to add interactive functionality to the page -->
+</body>
 </html>
+<!--HTML 部分构建了页面的基本结构，包括头部（header）、主体（main）和联系信息（section）等部分。头部包含了页面标题、
+导航链接以及一个欢迎信息；主体部分有一个用于展示活跃筹款者列表的无序列表（ul）；联系信息部分展示了电话号码、电子邮件地址和地址等联系信息。-->>

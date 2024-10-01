@@ -1,64 +1,22 @@
-/* 筹款者信息区域样式 */  
-.fundraiser-info {  
-    background-color: #fff;  
-    padding: 20px;  
-    border-radius: 5px;  
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  
-    margin-top: 20px;  
-}  
-  
-.fundraiser-info p {  
-    margin: 0;  
-    padding: 10px 0;  
-    border-bottom: 1px solid #ccc;  
-}  
-  
-.fundraiser-info p:last-child {  
-    border-bottom: none;  
-}  
-  
-/* 捐赠按钮样式 */  
-#donateButton {  
-    padding: 10px 20px;  
-    background-color: #0066cc;  
-    color: #fff;  
-    border: none;  
-    border-radius: 3px;  
-    cursor: pointer;  
-    margin-top: 20px;  
-}  
-  
-#donateButton:hover {  
-    background-color: #0052a3;  
-}  
-  
-/* 全局样式设置 */  
-body {  
-    font-family: Arial, sans-serif;  
+ 
+body, h1, h2, ul, li, p, a, main {  
     margin: 0;  
     padding: 0;  
-    background-color: #f4f4f4;  
+    list-style: none; 
+    text-decoration: none; 
+}  
+
+body {  
+    font-family: Arial, sans-serif;  
     display: flex;  
     flex-direction: column;  
     align-items: center;  
+    min-height: 70vh;  
+    margin: 0;  
+    padding: 20px;  
+    box-sizing: border-box;  
 }  
   
-/* 导航样式 */  
-nav a {  
-    text-decoration: none;  
-    color: #333;  
-    margin: 0 10px;  
-}  
-  
-nav a:hover {  
-    color: #0066cc;  
-}  
-  
-/* 标题样式 */  
-h1 {  
-    text-align: center;  
-    color: #333;  
-}  
 header {  
     background-color: #f2f2f2;  
     padding: 20px;  
@@ -72,80 +30,39 @@ header h1 {
 header p {  
     font-size: 16px;  
     color: #666;  
-}  
+} 
   
-/* 搜索表单样式 */  
-#searchForm {  
-    background-color: #fff;  
-    padding: 20px;  
-    border-radius: 5px;  
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  
-    text-align: left;  
-}  
+ 
   
-#searchForm label {  
-    display: block;  
-    margin-bottom: 5px;  
-}  
-  
-#searchForm input[type="text"],  
-#searchForm select {  
-    width: 100%;  
-    padding: 10px;  
-    margin-bottom: 15px;  
-    border: 1px solid #ccc;  
-    border-radius: 3px;  
-}  
-  
-#searchForm input[type="button"] {  
-    padding: 10px 20px;  
-    background-color: #0066cc;  
-    color: #fff;  
-    border: none;  
-    border-radius: 3px;  
-    cursor: pointer;  
-}  
-  
-#searchForm input[type="button"]:hover {  
-    background-color: #0052a3;  
-}  
-  
-/* 导航栏居中 */  
-nav {  
-    width: 100%;  
-    text-align: center;  
-    background-color: #fff;  
-    padding: 10px 0;  
-    /* 如果需要导航链接在一行显示，可以添加以下样式 */  
-    display: flex;  
-    justify-content: center; /* 水平居中 */  
-    align-items: center;     /* 垂直居中（如果需要的话） */  
-}  
-  
-/* 主体部分居中 */  
 main {  
-    width: 50%;  
-    min-width: 300px;  
+    flex: 1;  
     display: flex;  
     flex-direction: column;  
     align-items: center;  
-}  
-  
-/* 搜索结果模块样式 */  
-#records {  
-    background-color: #fff;  
-    padding: 20px;  
-    border-radius: 5px;  
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  
+    justify-content: center;  
     width: 100%;  
+    max-width: 800px;  
+    box-sizing: border-box;  
 }  
   
-#records p {  
-    margin: 0;  
-    padding: 10px 0;  
-    border-bottom: 1px solid #ccc;  
+.fundraiser-container {  
+    background-color: #fff;  
+    border: 1px solid #ddd;  
+    padding: 20px;  
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+    width: 60%;  
+    box-sizing: border-box;  
+    text-align: left; 
 }  
   
-#records p:last-child {  
-    border-bottom: none;  
+.fundraiser-container li {  
+    margin: 10px 0;  
 }
+
+#donateButton {  
+    margin-top: 10px;  
+    padding: 10px 20px;  
+    font-size: 16px;  
+    cursor: pointer;  
+}
+
